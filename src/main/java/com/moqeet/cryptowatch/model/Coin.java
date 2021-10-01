@@ -1,5 +1,7 @@
 package com.moqeet.cryptowatch.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Map;
 
 public class Coin {
@@ -150,5 +152,7 @@ public class Coin {
     public void setQuote(Map<String, Object> quote) {
         this.quote = quote;
     }
+
+
 }
 
