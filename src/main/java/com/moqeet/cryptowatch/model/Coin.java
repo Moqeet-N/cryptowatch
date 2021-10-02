@@ -24,18 +24,18 @@ public class Coin {
     private String cmc_rank;
     private String last_updated;
     private String currency;
-    private String price;
-    private String percent_change_24h;
-    private String percent_change_7d;
-    private String percent_change_30d;
-    private String percent_change_60d;
-    private String percent_change_90d;
-    private String market_cap;
+    private Double price;
+    private Double percent_change_24h;
+    private Double percent_change_7d;
+    private Double percent_change_30d;
+    private Double percent_change_60d;
+    private Double percent_change_90d;
+    private Double market_cap;
 
     public Coin() {
     }
 
-    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platform, String cmc_rank, String last_updated, String price, String percent_change_24h, String percent_change_7d, String percent_change_30d, String percent_change_60d, String percent_change_90d, String market_cap) {
+    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platform, String cmc_rank, String last_updated, String currency, Double price, Double percent_change_24h, Double percent_change_7d, Double percent_change_30d, Double percent_change_60d, Double percent_change_90d, Double market_cap) {
         this.id = id;
         this.name = name;
         this.symbol = symbol;
@@ -49,6 +49,7 @@ public class Coin {
         this.platform = platform;
         this.cmc_rank = cmc_rank;
         this.last_updated = last_updated;
+        this.currency = currency;
         this.price = price;
         this.percent_change_24h = percent_change_24h;
         this.percent_change_7d = percent_change_7d;
@@ -61,7 +62,7 @@ public class Coin {
     @SuppressWarnings("unchecked")
     @JsonProperty("quote")
     private void unpackNested(Map<String,Object> quote) {
-        Map<String,String> quoteData = (Map<String,String>)quote.get("USD");
+        Map<String,Double> quoteData = (Map<String,Double>)quote.get("USD");
         this.price = quoteData.get("price");
         this.percent_change_24h = quoteData.get("percent_change_24h");
         this.percent_change_7d = quoteData.get("percent_change_7d");
