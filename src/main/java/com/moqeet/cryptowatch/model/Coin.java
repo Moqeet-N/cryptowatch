@@ -1,5 +1,6 @@
 package com.moqeet.cryptowatch.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Coin {
 
     private String id;
@@ -20,10 +22,19 @@ public class Coin {
     private String max_supply;
     private String circulating_supply;
     private String total_supply;
-    private String platform;
+
+    //Platform vars
+    private String platformId;
+    private String platformName;
+    private String platformSymbol;
+    private String platformSlug;
+    private String platformToken_address;
+
     private String cmc_rank;
     private String last_updated;
     private String currency;
+
+    //Quote vars
     private Double price;
     private Double percent_change_24h;
     private Double percent_change_7d;
@@ -35,7 +46,7 @@ public class Coin {
     public Coin() {
     }
 
-    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platform, String cmc_rank, String last_updated, String currency, Double price, Double percent_change_24h, Double percent_change_7d, Double percent_change_30d, Double percent_change_60d, Double percent_change_90d, Double market_cap) {
+    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platformId, String platformName, String platformSymbol, String platformSlug, String platformToken_address, String cmc_rank, String last_updated, String currency, Double price, Double percent_change_24h, Double percent_change_7d, Double percent_change_30d, Double percent_change_60d, Double percent_change_90d, Double market_cap) {
         this.id = id;
         this.name = name;
         this.symbol = symbol;
@@ -46,7 +57,11 @@ public class Coin {
         this.max_supply = max_supply;
         this.circulating_supply = circulating_supply;
         this.total_supply = total_supply;
-        this.platform = platform;
+        this.platformId = platformId;
+        this.platformName = platformName;
+        this.platformSymbol = platformSymbol;
+        this.platformSlug = platformSlug;
+        this.platformToken_address = platformToken_address;
         this.cmc_rank = cmc_rank;
         this.last_updated = last_updated;
         this.currency = currency;
@@ -61,17 +76,33 @@ public class Coin {
 
     @SuppressWarnings("unchecked")
     @JsonProperty("quote")
-    private void unpackNested(Map<String,Object> quote) {
+    private void unpackNestedQuote(Map<String,Object> quote) {
         Map<String,Double> quoteData = (Map<String,Double>)quote.get("USD");
         this.price = quoteData.get("price");
         this.percent_change_24h = quoteData.get("percent_change_24h");
         this.percent_change_7d = quoteData.get("percent_change_7d");
         this.percent_change_30d = quoteData.get("percent_change_30d");
         this.percent_change_60d = quoteData.get("percent_change_60d");
-        this.percent_change_90d = quoteData.get("percent_change_90d");
+        if(quoteData.get("percent_change_90d")== 0 || quoteData.get("percent_change_90d")== 0.0){
+            System.out.println("000000000000000000000000000000000000000000000");
+        }else{
+            this.percent_change_90d = quoteData.get("percent_change_90d");
+        }
         this.market_cap = quoteData.get("market_cap");
     }
 
+    @JsonProperty("platform")
+    private void unpackNestedPlatform(Map<String,String> platform) {
+        if(platform==null){
+            System.out.println("null");
+            return;
+        }
+        this.platformId = platform.get("id");
+        this.platformName = platform.get("name");
+        this.platformSymbol = platform.get("symbol");
+        this.platformSlug = platform.get("slug");
+        this.platformToken_address = platform.get("token_address");
+    }
 
 }
 
