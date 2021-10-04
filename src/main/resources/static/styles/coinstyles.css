@@ -1,8 +1,41 @@
 body{
-    background: #D0D0D0;
     min-height: 100vh;
+    background-color: #585858;
 }
 
 p,h1,h2,h3,h4,h5,h6{
     font-family: Courier, serif;
+}
+
+button{
+    background-color: #6D9886;
+}
+
+#footerDiv{
+    background-color: #333333;
+    color: white;
+}
+a:link {
+    color: #6D9886;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: gray;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: whitesmoke;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
 }

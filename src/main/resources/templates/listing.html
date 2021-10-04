@@ -7,9 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/coinstyles.css">
 
     <title>CryptoWatch</title>
-    <link rel="stylesheet" href="styles/coinstyles.css">
     <script>
         $(function() {
             $(document).ready(function() {
@@ -19,35 +19,18 @@
     </script>
 </head>
 <body>
-<!--<div class="table-wrapper">-->
-<!--    <table class="fl-table">-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th><h2>Name</h2></th>-->
-<!--            <th><h2>Symbol</h2></th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--        <tr th:if="${coins==null}">-->
-<!--            <td colspan="2"><h2> No Coins Available </h2></td>-->
-<!--        </tr>-->
-<!--        <tr th:each="coin : ${coins}">-->
-<!--            <form th:action="@{/coin(name=${coin.name})}">-->
-<!--                <td><button th:name="action" th:text="${coin.name}" th:href="@{/coin(name=${coin.name})}"></button></td>-->
-<!--                <td th:text="${coin.symbol}"></td>-->
-<!--            </form>-->
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--</div>-->
+
+<h1 class="text-center">
+    CryptoWatch
+</h1>
 
 <div class="container py-5">
     <div class="row py-5">
         <div class="col-lg-10 mx-auto">
             <div class="card rounded shadow border-0">
                 <div class="card-body p-5 bg-white rounded">
-                    <div class="table-responsive">
-                        <table id="example" style="width:100%" class="table table-striped table-bordered">
+                    <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+                        <table id="example" style="width:100%" class="table table-striped table-bordered ">
                             <thead>
                             <tr>
                                 <th>Name</th>
@@ -72,6 +55,77 @@
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="page-footer font-small mdb-color pt-4" id="footerDiv">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Footer links -->
+        <div class="row text-center text-md-left mt-3 pb-3">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">CryptoWatch</h6>
+                <p>Thank you for using our services !</p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
+                <p>
+                    <a href="https://github.com/Moqeet-N/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </p>
+                <p>
+                    <a href="https://coinmarketcap.com/api/" target="_blank" rel="noopener noreferrer">CoinMarketCap</a>
+                </p>
+                <p>
+                    <a href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer">Spring Boot</a>
+                </p>
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                <p>
+                    <p>mqtnDev@gmail.com</p>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Footer links -->
+
+        <hr>
+
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center">
+
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8">
+
+                <!--Copyright-->
+                <p class="text-center text-md-left">
+                    CryptoWatch: Tracking Cryptocurrency prices made simpler.
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+</footer>
+<!-- Footer -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
