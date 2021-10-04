@@ -79,22 +79,39 @@ public class Coin {
     private void unpackNestedQuote(Map<String,Object> quote) {
         Map<String,Double> quoteData = (Map<String,Double>)quote.get("USD");
         this.price = quoteData.get("price");
-        this.percent_change_24h = quoteData.get("percent_change_24h");
-        this.percent_change_7d = quoteData.get("percent_change_7d");
-        this.percent_change_30d = quoteData.get("percent_change_30d");
-        this.percent_change_60d = quoteData.get("percent_change_60d");
-        if(quoteData.get("percent_change_90d")== 0 || quoteData.get("percent_change_90d")== 0.0){
-            System.out.println("000000000000000000000000000000000000000000000");
+
+        //Fixes issue where 0 as value is considered an Integer and cannot be parsed to a Double
+        if(quoteData.get("percent_change_24h") instanceof Double){
+            this.percent_change_24h = quoteData.get("percent_change_24h");
         }else{
+            this.percent_change_24h = 0.0;
+        }
+        if(quoteData.get("percent_change_7d") instanceof Double){
+            this.percent_change_7d = quoteData.get("percent_change_7d");
+        }else{
+            this.percent_change_7d = 0.0;
+        }
+        if(quoteData.get("percent_change_30d") instanceof Double){
+            this.percent_change_30d = quoteData.get("percent_change_30d");
+        }else{
+            this.percent_change_30d = 0.0;
+        }
+        if(quoteData.get("percent_change_60d") instanceof Double){
+            this.percent_change_60d = quoteData.get("percent_change_60d");
+        }else{
+            this.percent_change_60d = 0.0;
+        }
+        if(quoteData.get("percent_change_90d") instanceof Double){
             this.percent_change_90d = quoteData.get("percent_change_90d");
+        }else{
+            this.percent_change_90d = 0.0;
         }
         this.market_cap = quoteData.get("market_cap");
     }
 
     @JsonProperty("platform")
     private void unpackNestedPlatform(Map<String,String> platform) {
-        if(platform==null){
-            System.out.println("null");
+        if(platform == null){
             return;
         }
         this.platformId = platform.get("id");

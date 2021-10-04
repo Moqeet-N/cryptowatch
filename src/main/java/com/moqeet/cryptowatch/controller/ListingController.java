@@ -18,9 +18,9 @@ public class ListingController {
 
         String response = listingUtility.getListings();
         System.out.println(response);
-        listingUtility.translateJson2(response);
+        List<Coin> coins = listingUtility.getCoins(response);
 
-        model.addAttribute("something", "ok");
+        model.addAttribute("something", coins.get(25).getName());
         return "listing";
     }
 }

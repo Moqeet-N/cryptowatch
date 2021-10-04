@@ -8,7 +8,9 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ListingUtility {
 
@@ -40,32 +42,21 @@ public class ListingUtility {
         return responseEntity.getBody();
     }
 
-    public void translateJson2(String jsonResponse) throws IOException {
+    public List<Coin> getCoins(String jsonResponse) throws IOException {
 
-        System.out.println(jsonResponse);
-
+        List<Coin> coins = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
 
+        //Retrieves data from response, JsonNode -> List that consists of data for each coin
         JsonNode arrNode = mapper.readTree(jsonResponse).get("data");
 
+        //Maps each JsonNode to a Coin object
         for (int i = 0; i < arrNode.size()-1; i++) {
-            System.out.println(arrNode.get(i));
             Coin c = mapper.convertValue(arrNode.get(i), Coin.class);
-            System.out.println(c.getName());
+            coins.add(c);
         }
 
-
-        /*for (int i = 0; i < 4; i ++){
-            Coin coin = mapper.convertValue(arrNode.get(i), Coin.class);
-        }*/
-
-
-        /*Coin coin = new ObjectMapper()
-                .readerFor(Coin.class)
-                .readValue(arrNode.get(5));
-
-        System.out.println("NAME: " + coin.getName());*/
-
+        return coins;
     }
 
 }
