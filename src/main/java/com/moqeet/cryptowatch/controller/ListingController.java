@@ -20,7 +20,7 @@ public class ListingController {
         System.out.println(response);
         List<Coin> coins = listingUtility.getCoins(response);
 
-        model.addAttribute("something", coins.get(25).getName());
+        model.addAttribute("coins", coins);
         return "listing";
     }
 }
