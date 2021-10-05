@@ -15,6 +15,11 @@ button{
     background-color: #333333;
     color: white;
 }
+
+#headerButt{
+    background-color: #6D9886;
+    color: white;
+}
 a:link {
     color: #6D9886;
     background-color: transparent;
