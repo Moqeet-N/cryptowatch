@@ -36,6 +36,7 @@ public class Coin {
 
     //Quote vars
     private Double price;
+    private Double percent_change_1h;
     private Double percent_change_24h;
     private Double percent_change_7d;
     private Double percent_change_30d;
@@ -46,7 +47,7 @@ public class Coin {
     public Coin() {
     }
 
-    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platformId, String platformName, String platformSymbol, String platformSlug, String platformToken_address, String cmc_rank, String last_updated, String currency, Double price, Double percent_change_24h, Double percent_change_7d, Double percent_change_30d, Double percent_change_60d, Double percent_change_90d, Double market_cap) {
+    public Coin(String id, String name, String symbol, String slug, String num_market_pairs, String date_added, String[] tags, String max_supply, String circulating_supply, String total_supply, String platformId, String platformName, String platformSymbol, String platformSlug, String platformToken_address, String cmc_rank, String last_updated, String currency, Double price, Double percent_change_1h, Double percent_change_24h, Double percent_change_7d, Double percent_change_30d, Double percent_change_60d, Double percent_change_90d, Double market_cap) {
         this.id = id;
         this.name = name;
         this.symbol = symbol;
@@ -66,6 +67,7 @@ public class Coin {
         this.last_updated = last_updated;
         this.currency = currency;
         this.price = price;
+        this.percent_change_1h = percent_change_1h;
         this.percent_change_24h = percent_change_24h;
         this.percent_change_7d = percent_change_7d;
         this.percent_change_30d = percent_change_30d;
@@ -81,6 +83,11 @@ public class Coin {
         this.price = quoteData.get("price");
 
         //Fixes issue where 0 as value is considered an Integer and cannot be parsed to a Double
+        if(quoteData.get("percent_change_1h") instanceof Double){
+            this.percent_change_1h = quoteData.get("percent_change_1h");
+        }else{
+            this.percent_change_1h = 0.0;
+        }
         if(quoteData.get("percent_change_24h") instanceof Double){
             this.percent_change_24h = quoteData.get("percent_change_24h");
         }else{
