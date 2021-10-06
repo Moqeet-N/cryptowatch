@@ -26,7 +26,7 @@
         <h1 class="display-3 font-weight-bold">CryptoWatch</h1>
         <p class="mb-0">Cryptocurrency prices made simple.</p>
         <br>
-        <a id="headerButt" href="https://github.com/Moqeet-N/" target="_blank" rel="noopener noreferrer" role="button" class="btn btn-secondary px-5">GitHub</a>
+        <a id="headerButt" href="https://github.com/Moqeet-N/cryptowatch" target="_blank" rel="noopener noreferrer" role="button" class="btn btn-secondary px-5">GitHub</a>
     </div>
 </div>
 <!-- Header -->
@@ -61,8 +61,8 @@
                                     <td colspan="2"><h2> No Coins Available </h2></td>
                                 </tr>
                                 <tr th:each="coin : ${coins}">
-                                    <form th:action="@{/coin(coin=${coin.name})}" th:method="POST">
-                                        <td><button th:name="coin" th:text="${coin.name}" th:href="@{/coin(coin=${coin.name})}"></button></td>
+                                    <form th:action="@{/coin(id=${coin.id})}" th:method="POST">
+                                        <td><button th:name="id" th:text="${coin.name}" th:href="@{/coin(id=${coin.id})}"></button></td>
                                     </form>
                                     <td th:text="${coin.symbol}"></td>
                                         <td th:text="${coin.price}"></td>

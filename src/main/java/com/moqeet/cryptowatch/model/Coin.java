@@ -23,6 +23,8 @@ public class Coin {
     private String circulating_supply;
     private String total_supply;
 
+    private String coinMarketCapURL;
+
     //Platform vars
     private String platformId;
     private String platformName;
@@ -58,6 +60,7 @@ public class Coin {
         this.max_supply = max_supply;
         this.circulating_supply = circulating_supply;
         this.total_supply = total_supply;
+        this.coinMarketCapURL = "https://coinmarketcap.com/currencies/"+slug;
         this.platformId = platformId;
         this.platformName = platformName;
         this.platformSymbol = platformSymbol;

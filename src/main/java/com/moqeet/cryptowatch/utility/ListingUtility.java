@@ -1,6 +1,5 @@
 package com.moqeet.cryptowatch.utility;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moqeet.cryptowatch.model.Coin;
@@ -14,6 +13,7 @@ import java.util.List;
 
 public class ListingUtility {
 
+    // API key that is required to make a request to CoinMarketCap API
     private final String apiKey = "b0b815f9-35eb-4bf4-8285-ae1659e59fd9";
 
     public String getListings() {
