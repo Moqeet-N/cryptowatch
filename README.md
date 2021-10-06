@@ -8,4 +8,4 @@ Thymeleaf which is a Java template engine for processing and creating HTML, XML,
 
 CryptoWatch has a minimalist and clean design so that the user isn't bombarded with excessive amount of data.
 
-![GitHub Logo](/header.png)
+![GitHub Logo](header.png)
