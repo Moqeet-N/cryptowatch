@@ -1,6 +1,14 @@
+/*Variables css*/
+/*Colors*/
+:root {
+    --primary-color: #585858;
+    --secondary-color: #333333;
+    --accent-color: #6D9886;
+}
+
 body{
     min-height: 100vh;
-    background-color: #585858;
+    background-color: var(--primary-color);
 }
 
 p,h1,h2,h3,h4,h5,h6{
@@ -8,16 +16,16 @@ p,h1,h2,h3,h4,h5,h6{
 }
 
 button{
-    background-color: #6D9886;
+    background-color: var(--accent-color);
 }
 
 #footerDiv{
-    background-color: #333333;
+    background-color: var(--secondary-color);
     color: white;
 }
 
 #headerButt{
-    background-color: #6D9886;
+    background-color: var(--accent-color);
     color: white;
 }
 
@@ -25,7 +33,7 @@ button{
 Custom colors for links
  */
 a:link {
-    color: #6D9886;
+    color: var(--accent-color);
     background-color: transparent;
     text-decoration: none;
 }
